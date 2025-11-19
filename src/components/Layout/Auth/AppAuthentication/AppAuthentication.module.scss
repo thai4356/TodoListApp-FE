@@ -1,0 +1,91 @@
+@import 'styles/variable';
+@import 'styles/mixin';
+
+.authentication {
+  .authentication__page-container {
+    max-width: 472px;
+    min-width: 472px;
+    margin: auto;
+
+    .authentication__title {
+      line-height: 29.05px;
+      color: #181e25;
+    }
+
+    .authentication__description {
+      line-height: 21.63px;
+      color: rgba(120, 139, 165, 1);
+      letter-spacing: 0.2px;
+    }
+
+    .authentication__children {
+      border: 1px solid rgba(222, 228, 237, 1);
+      padding: 58px 41px;
+      min-height: 500px;
+
+      .authentication_form {
+        :global {
+          .ant-form-item {
+            .ant-form-item-required {
+              font-weight: 600;
+              font-size: 16px;
+            }
+          }
+
+          .ant-input {
+            height: 40px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: rgba(120, 139, 165, 1);
+            line-height: 17px;
+            padding-left: 12px;
+          }
+
+          .ant-input-affix-wrapper.ant-input-password {
+            padding-top: 0;
+            padding-bottom: 0;
+            padding-left: 0;
+          }
+
+          .ant-input-suffix {
+            > span {
+              svg {
+                width: 20px;
+                height: 20px;
+              }
+            }
+          }
+
+          .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input {
+            background: rgba(253, 253, 253, 0.1) !important;
+          }
+
+          .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(
+              .ant-input-affix-wrapper-borderless
+            ).ant-input-affix-wrapper {
+            background: rgba(253, 253, 253, 0.1) !important;
+          }
+        }
+
+        .login_button {
+          :global {
+            .ant-btn {
+              height: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .authentication__page-register {
+    @extend .authentication__page-container;
+    max-width: 700px;
+    min-width: 700px;
+    margin: auto;
+  }
+
+  @media screen and (max-height: 650px) {
+    padding: 20px 0;
+  }
+}

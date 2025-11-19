@@ -1,0 +1,18 @@
+.menu {
+  :global {
+    .align-items-center.d-flex {
+      .ant-image {
+        display: flex;
+        align-items: center;
+      }
+    }
+    .ant-menu-submenu-title {
+      direction: rtl;
+    }
+    .ant-menu-item::after,
+    .ant-menu-submenu::after {
+      border-bottom-width: 3px !important;
+      bottom: 12px !important;
+    }
+  }
+}

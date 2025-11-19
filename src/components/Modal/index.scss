@@ -1,0 +1,51 @@
+.modal-portal {
+  .ant-modal-content {
+    padding: 0;
+
+    .ant-modal-header {
+      margin-bottom: 0 !important;
+      border-bottom: none;
+
+      .ant-modal-title {
+        .title-wrap__modal-portal {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          text-align: center;
+
+          .title__modal-portal {
+            font-weight: 500;
+            font-size: 1.25rem;
+            flex: 1;
+          }
+
+          &.no-title {
+            padding: 0;
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    .ant-modal-body {
+      padding: 1rem 1.5rem !important;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+  }
+}
+
+.modal-confirm-custom {
+  .ant-modal-body {
+    padding: 1rem 1.5rem !important;
+  }
+  .ant-modal-confirm-body {
+    .anticon {
+      padding: 16px;
+      border-radius: 50%;
+    }
+  }
+}

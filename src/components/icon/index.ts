@@ -1,0 +1,11 @@
+export { AgentIcon } from './ICAgent';
+export { BusinessIcon } from './ICBusiness';
+export { ChangePassIcon } from './ICChangePass';
+export { DeleteIcon } from './ICDelete';
+export { DiaryIcon } from './ICDiary';
+export { EditIcon } from './ICEdit';
+export { EmployeeIcon } from './ICEmployee';
+export { ListIcon } from './ICList';
+export { ICStatus } from './ICStatus';
+export { UserIcon } from './ICUser';
+export { ViewIcon } from './ICView';

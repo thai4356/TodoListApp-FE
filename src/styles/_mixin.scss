@@ -1,0 +1,19 @@
+@import './animation';
+
+@mixin styleScrollBar() {
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgba($color: #00000000, $alpha: 0.1);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba($color: rgba(50, 180, 74, 1), $alpha: 0.6);
+    border-radius: 4px;
+  }
+  &::-webkit-scrollbar-thumb:vertical:hover {
+    background: rgba($color: #888, $alpha: 0.68);
+  }
+}

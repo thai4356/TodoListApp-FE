@@ -1,0 +1,9 @@
+node_modules
+yarn.lock
+package-lock.json
+public
+docs
+.gitlab-ci.yml
+src/types/SwaggerTypeAdmin.ts
+src/types/SwaggerTypeUser.ts
+src/utils
