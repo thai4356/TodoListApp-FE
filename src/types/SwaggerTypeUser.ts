@@ -57,6 +57,9 @@ export interface UserDetailRes {
   email?: string;
 }
 
+
+
+
 export interface EditMyProfileReq {
   name: string;
   email?: string;
@@ -635,10 +638,10 @@ export interface UserLoginRes {
 }
 
 export interface UserListRes {
-  id : number ;
-  fullName : string;
-  email : string;
-  avatarUrl : string;
+  id: number;
+  fullName: string;
+  email: string;
+  avatarUrl: string;
 }
 
 export interface UserLoginReq {

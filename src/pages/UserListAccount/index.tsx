@@ -65,7 +65,7 @@ const CompanyListAccount = () => {
   const columns: ColumnsType<UserRes> = [
     {
       title: t('full_name'),
-      dataIndex: 'name',
+      dataIndex: 'fullName',
       ellipsis: true,
     },
     {

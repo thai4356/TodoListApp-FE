@@ -163,6 +163,7 @@
     "field_successfully": "{{field}} thành công!",
     "sign_in_successfully": "Đăng nhập thành công!",
     "sign_up_successfully": "Đăng ký thành công!",
+    "sign_up_failed": "Gmail này đã có người đăng kí!",
     "successfully": "Thành công!",
     "update_successfully": "Cập nhật {{field, lowercase}} thành công!",
     "wrong_otp" : "Sai otp"

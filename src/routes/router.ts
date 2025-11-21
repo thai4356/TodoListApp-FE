@@ -22,7 +22,8 @@ export const PAGE = {
   WIDGET: '/widget',
   DOCS: '/docs',
 
-  USER: '/asd',
+  USER: '/user',
+  TEAM: '/team'
 } as const;
 
 export const PUBLIC_ROUTERS = {
@@ -39,6 +40,7 @@ export const PRIVATE_ROUTERS = {
   BUSINESS: {
     BASE: '/',
     ACCOUNT: PAGE.ACCOUNT,
+    TEAM : PAGE.TEAM,
     OVERVIEW: PAGE.OVERVIEW,  
     DEVICE: PAGE.DEVICE, 
     PROVIDER_CONTENT: PAGE.PROVIDER_CONTENT, 

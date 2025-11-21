@@ -27,9 +27,9 @@ import MerchantBranch from 'pages/MerchantBranch';
 import Role from 'pages/Role';
 import Transaction from 'pages/Transaction';
 
-import UserListPage from 'pages/Users';
+import UserListPage from 'pages/UserListAccount';
 import UserInfoPage from 'pages/Account';
-
+import TeamPage from 'pages/Team';
 
 export { PRIVATE_ROUTERS, PUBLIC_ROUTERS } from './router';
 
@@ -161,15 +161,23 @@ const businessRoutes: Routes[] = [
     element: <Navigate to={PRIVATE_ROUTERS.BUSINESS.OVERVIEW} />,
   },
 
-  { path: '/users', 
+  { path: PRIVATE_ROUTERS.BUSINESS.USER, 
     element: <UserListPage />, 
-    name: 'user list' },
+    name: 'user' 
+  },
 
-    {
+  {
     path: PRIVATE_ROUTERS.BUSINESS.ACCOUNT,
     element :  <UserInfoPage/>, 
     name : 'account info'
   },
+
+  {
+    path: PRIVATE_ROUTERS.BUSINESS.TEAM,
+    element :  <TeamPage/>, 
+    name : 'My team'
+  },
+
 ];
 
 const checkPermissionView = (menu: Routes[]): Routes[] => {
