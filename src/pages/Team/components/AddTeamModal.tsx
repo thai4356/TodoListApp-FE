@@ -1,73 +1,54 @@
-import { Modal, Form, Input, Button } from 'antd';
+import { Form, Input, Modal } from 'antd';
 import { useCreateTeam } from 'api/team/useTeam';
+import { useEffect } from 'react';
 
 type Props = {
   open: boolean;
   onClose: () => void;
-  onCreated?: () => void;
-  currentUserId?: number;
 };
 
-const AddTeamModal = ({ open, onClose, onCreated, currentUserId }: Props) => {
+const AddTeamModal = ({ open, onClose }: Props) => {
   const [form] = Form.useForm();
   const { mutate: createTeam, isPending } = useCreateTeam();
 
-  const handleOk = () => {
-    form.submit();
-  };
-
-  const handleFinish = (values: { name: string; description: string }) => {
-    if (!currentUserId) return;
-
-    createTeam(
-      {
-        request: {
-          ...values,
-          user: currentUserId, // AddTeamBaseReq.user: number
-        },
-        currentUserId,
+  const handleSubmit = (values: any) => {
+    createTeam(values, {
+      onSuccess: () => {
+        form.resetFields();
+        onClose();
       },
-      {
-        onSuccess: () => {
-          form.resetFields();
-          onClose();
-          onCreated?.();
-        },
-      }
-    );
+    });
   };
+
+  // Reset form khi mở lại modal
+  useEffect(() => {
+    if (!open) form.resetFields();
+  }, [open]);
 
   return (
     <Modal
       open={open}
-      title="Create New Team"
+      title="Tạo team mới"
       onCancel={onClose}
-      onOk={handleOk}
-      footer={[
-        <Button key="cancel" onClick={onClose}>
-          Cancel
-        </Button>,
-        <Button key="submit" type="primary" loading={isPending} onClick={handleOk} disabled={!currentUserId}>
-          Create
-        </Button>,
-      ]}
+      onOk={() => form.submit()}
+      confirmLoading={isPending}
       destroyOnClose
     >
-      <Form form={form} layout="vertical" onFinish={handleFinish}>
+      <Form form={form} layout="vertical" onFinish={handleSubmit}>
         <Form.Item
-          label="Team Name"
+          label="Tên team"
           name="name"
-          rules={[{ required: true, message: 'Please enter team name' }]}
+          rules={[{ required: true, message: 'Vui lòng nhập tên team' }]}
         >
-          <Input placeholder="Enter team name" />
+          <Input placeholder="Nhập tên team" />
         </Form.Item>
 
         <Form.Item
-          label="Description"
+          label="Mô tả"
           name="description"
-          rules={[{ required: true, message: 'Please enter description' }]}
+          rules={[{ required: true, message: 'Vui lòng nhập mô tả' }]}
         >
-          <Input.TextArea rows={4} placeholder="Enter team description" />
+          <Input.TextArea rows={4} placeholder="Nhập mô tả team" />
         </Form.Item>
       </Form>
     </Modal>

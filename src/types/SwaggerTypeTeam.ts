@@ -18,9 +18,8 @@ export interface TeamMemberRes {
 }
 
 export interface UserDetailRes {
-  /** @format int32 */
   id?: number;
-  name?: string;
+  fullname?: string;
   email?: string;
 }
 

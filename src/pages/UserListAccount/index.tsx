@@ -63,48 +63,40 @@ const CompanyListAccount = () => {
   };
 
   const columns: ColumnsType<UserRes> = [
-    {
-      title: t('full_name'),
-      dataIndex: 'fullName',
-      ellipsis: true,
-    },
-    {
-      title: t('email'),
-      dataIndex: 'email',
-      ellipsis: true,
-    },
-    {
-      title: t('phone'),
-      dataIndex: 'phone',
-      ellipsis: true,
-    },
-    {
-      title: t('role'),
-      width: 200,
-      ellipsis: true,
-      render: (_, record) => record.role?.roleName,
-    },
-    {
-      title: t('status'),
-      dataIndex: 'status',
-      width: 100,
-      render: (value) => {
-        return <DisplayStatus value={value} />;
-      },
-    },
-    {
-      width: 200,
-      fixed: 'right',
-      render: (_, record) => (
-        <ActionsRow
-          onDelete={() => handleBulkDelete(record.id)}
-          onUpdate={() => handleCreateUpdate(record)}
-          onChangePassword={() => handleChangePassword(record.id)}
-          screen={screen}
-        />
-      ),
-    },
-  ];
+  {
+    title: t('full_name'),
+    dataIndex: 'fullName',
+    key: 'fullName',
+    ellipsis: true,
+  },
+  {
+    title: t('email'),
+    dataIndex: 'email',
+    key: 'email',
+    ellipsis: true,
+  },
+  {
+    title: t('status'),
+    dataIndex: 'deleted',
+    key: 'deleted',
+    width: 100,
+    render: (value) => <DisplayStatus value={value} />,
+  },
+  {
+    title: t('action'),
+    key: 'action',
+    width: 200,
+    fixed: 'right',
+    render: (_, record) => (
+      <ActionsRow
+        onDelete={() => handleBulkDelete(record.id)}
+        onUpdate={() => handleCreateUpdate(record)}
+        onChangePassword={() => handleChangePassword(record.id)}
+        screen={screen}
+      />
+    ),
+  },
+];
 
   return (
     <div>
@@ -132,6 +124,7 @@ const CompanyListAccount = () => {
         loading={isFetching}
         totalItems={userAccount?.total_record}
         currentPage={params.page}
+        rowKey="id" 
       />
     </div>
   );

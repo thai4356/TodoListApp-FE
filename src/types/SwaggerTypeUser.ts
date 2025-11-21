@@ -697,7 +697,7 @@ export interface UserRes {
    * Trạng thái sử dụng:  0 - INACTIVE, 1 - ACTIVE
    * @format int32
    */
-  status?: number;
+  deleted?: number;
   /** @format date-time */
   birthday?: string;
   /**
