@@ -244,7 +244,7 @@ const TeamDetailPage = () => {
         open={openAddMember}
         onClose={() => setOpenAddMember(false)}
         teamId={Number(teamId)}
-        currentUserId={currentUserId}
+        currentUserId={currentUserId ?? 0}
       />
     </div>
   );
