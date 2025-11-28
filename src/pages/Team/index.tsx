@@ -45,6 +45,22 @@ const getCurrentUserId = (): number | null => {
   }
 };
 
+const THUMB_COLORS = [
+  "linear-gradient(135deg, #f97316, #ec4899)",
+  "linear-gradient(135deg, #3b82f6, #6366f1)",
+  "linear-gradient(135deg, #10b981, #22c55e)",
+  "linear-gradient(135deg, #ef4444, #f43f5e)",
+  "linear-gradient(135deg, #a855f7, #d946ef)",
+  "linear-gradient(135deg, #14b8a6, #06b6d4)",
+  "linear-gradient(135deg, #facc15, #f59e0b)",
+];
+
+const getColorByTeamId = (teamId: number) => {
+  const index = teamId % THUMB_COLORS.length;
+  return THUMB_COLORS[index];
+};
+
+
 const TeamPage = () => {
   const { data: teams, isError, error, refetch } = useGetTeamByUser();
   const [openModal, setOpenModal] = useState(false);
@@ -176,8 +192,11 @@ const TeamPage = () => {
                 onClick={() => navigate(`/team/${team.id}`)}
               >
                 <div className="team-card-header">
-                  <Tag className="team-card-status">Live</Tag>
-                  <div className="team-card-thumbnail" />
+                  <Tag className="team-card-status">Group</Tag>
+                  <div
+                    className="team-card-thumbnail"
+                    style={{ background: getColorByTeamId(team.id) }}
+                  />
                 </div>
 
                 {/* Title */}
