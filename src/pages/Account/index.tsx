@@ -22,7 +22,7 @@ export default function UserInfoPage() {
     <Card
       title={
         <Title level={4} style={{ margin: 0 }}>
-          Thông tin tài khoản
+          Account info
         </Title>
       }
       style={{
@@ -59,12 +59,7 @@ export default function UserInfoPage() {
 
             <Divider />
 
-            <div style={{ width: '100%' }}>
-              <div className="flex justify-between mb-2">
-                <Text type="secondary">User ID</Text>
-                <Text>{user.id}</Text>
-              </div>
-            </div>
+            
           </div>
         )
       )}

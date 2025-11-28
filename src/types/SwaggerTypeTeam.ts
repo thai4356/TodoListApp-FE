@@ -9,7 +9,7 @@ export interface TeamDetailRes {
 }
 
 export interface TeamMemberRes {
-  id: number;               // user_id
+  user_id: number;               // user_id
   fullName: string;
   email: string;
   avatarUrl: string;

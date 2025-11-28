@@ -26,15 +26,15 @@ const CompanyListAccount = () => {
   const { data: userAccount, isFetching } = useGetCompanyUsers(params);
   const { mutateAsync: deleteUserAccount } = useBulkDeleteCompanyUsers();
 
-  const handleCreateUpdate = (user?: UserRes) => {
-    openModal({
-      content: <ModalCreateUpdateAccount userId={user?.id} screen={screen} />,
-      options: {
-        title: t('view_account'),
-        width: 800,
-      },
-    });
-  };
+  // const handleCreateUpdate = (user?: UserRes) => {
+  //   openModal({
+  //     content: <ModalCreateUpdateAccount userId={user?.id} screen={screen} />,
+  //     options: {
+  //       title: t('view_account'),
+  //       width: 800,
+  //     },
+  //   });
+  // };
 
   const handleChangePassword = (id?: number) => {
     if (id === undefined) return notifyError('user not found');
@@ -90,7 +90,7 @@ const CompanyListAccount = () => {
     render: (_, record) => (
       <ActionsRow
         onDelete={() => handleBulkDelete(record.id)}
-        onUpdate={() => handleCreateUpdate(record)}
+        // onUpdate={() => handleCreateUpdate(record)}
         onChangePassword={() => handleChangePassword(record.id)}
         screen={screen}
       />
@@ -102,7 +102,7 @@ const CompanyListAccount = () => {
     <div>
       <HeaderTable
         title={`${t('field_management', { field: t('auth.account') })}`}
-        onCreate={() => handleCreateUpdate()}
+        // onCreate={() => handleCreateUpdate()}
         onBulkDelete={handleBulkDelete}
         disableDelete={!selectedKey.length}
         screen={screen}

@@ -15,7 +15,7 @@ import { ScreenType } from 'types';
 import { checkPermission } from 'utils/checkPermission';
 import { PRIVATE_ROUTERS, PUBLIC_ROUTERS } from './router';
 import CompanyListAccount from 'pages/UserListAccount';
-
+import TeamDetailPage from 'pages/TeamDetail';
 
 import ProviderDevice from 'pages/ProviderDevice';
 import ProviderContent from 'pages/ProviderContent';
@@ -161,22 +161,28 @@ const businessRoutes: Routes[] = [
     element: <Navigate to={PRIVATE_ROUTERS.BUSINESS.OVERVIEW} />,
   },
 
-  { path: PRIVATE_ROUTERS.BUSINESS.USER, 
-    element: <UserListPage />, 
-    name: 'user' 
+  {
+    path: PRIVATE_ROUTERS.BUSINESS.USER,
+    element: <UserListPage />,
+    name: 'user'
   },
 
   {
     path: PRIVATE_ROUTERS.BUSINESS.ACCOUNT,
-    element :  <UserInfoPage/>, 
-    name : 'account info'
+    element: <UserInfoPage />,
+    name: 'account info'
   },
 
   {
     path: PRIVATE_ROUTERS.BUSINESS.TEAM,
-    element :  <TeamPage/>, 
-    name : 'My team'
+    element: <TeamPage />,
+    name: 'My team'
   },
+
+  {
+    path: '/team/:teamId',
+    element: <TeamDetailPage />,
+  }
 
 ];
 

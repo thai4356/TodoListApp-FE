@@ -25,7 +25,7 @@ export const ModalCreateUpdateAccount = ({ userId, screen }: { userId: number | 
   const { mutate: updateUserAccount } = useUpdateCompanyUser();
   const [avatar, setAvatar] = useState<BaseResponseUploadFile['data']>();
 
-  const { data: getProfile, isFetching } = useGetProfile({ accountId: userId }, { enabled: !!userId });
+  // const { data: getProfile, isFetching } = useGetProfile({ accountId: userId }, { enabled: !!userId });
 
   const formItems: IFormBoxItem<FormAddUpdateAccountSchema>[] = [
     {
@@ -136,23 +136,23 @@ export const ModalCreateUpdateAccount = ({ userId, screen }: { userId: number | 
     });
   };
 
-  return isFetching ? (
-    <Skeleton active />
-  ) : (
-    <Form
-      form={form}
-      layout="vertical"
-      initialValues={{
-        ...getProfile?.data,
-        roleId: getProfile?.data?.role?.roleId,
-        birthday: getProfile?.data?.birthday ? dayjs(getProfile?.data.birthday) : '',
-      }}
-      onFinish={handleCreateAccountSubmit}
-      autoComplete="off"
-    >
-      {userId && <UploadAvatar setAvatar={setAvatar} />}
-      <FormBoxItem listItems={formItems} columnGap={[20, 10]} rule={rule} />
-      <ButtonGlobal.Footer isUpdate={!!userId} htmlType="submit" screen={screen} />
-    </Form>
-  );
+  // return isFetching ? (
+  //   <Skeleton active />
+  // ) : (
+  //   <Form
+  //     form={form}
+  //     layout="vertical"
+  //     initialValues={{
+  //       ...getProfile?.data,
+  //       roleId: getProfile?.data?.role?.roleId,
+  //       birthday: getProfile?.data?.birthday ? dayjs(getProfile?.data.birthday) : '',
+  //     }}
+  //     onFinish={handleCreateAccountSubmit}
+  //     autoComplete="off"
+  //   >
+  //     {userId && <UploadAvatar setAvatar={setAvatar} />}
+  //     <FormBoxItem listItems={formItems} columnGap={[20, 10]} rule={rule} />
+  //     <ButtonGlobal.Footer isUpdate={!!userId} htmlType="submit" screen={screen} />
+  //   </Form>
+  // );
 };

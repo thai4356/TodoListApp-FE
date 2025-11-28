@@ -53,4 +53,5 @@ const userReducer = userSlice.reducer;
 
 export { login, logoutUser };
 export default userReducer;
-export type RootState = ReturnType<typeof store.getState>;
+
+

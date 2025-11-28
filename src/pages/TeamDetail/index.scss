@@ -1,0 +1,139 @@
+.kanban-page {
+  padding: 20px 40px;
+  background: #f7f9fc;
+  min-height: 100vh;
+}
+
+.kanban-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+
+  h1 {
+    font-size: 26px;
+    font-weight: 600;
+  }
+}
+
+.kanban-columns {
+  display: flex;
+  gap: 25px;
+}
+
+.kanban-col {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 32%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  h3 {
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+}
+
+.task-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .task-title {
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .task-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #777;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+}
+
+.add-card {
+  margin-top: 10px;
+  color: #ff7a00;
+  font-weight: 500;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* ========== DRAG EFFECT ========== */
+.task-card.dragging {
+  opacity: 0.3;
+  transform: scale(0.95);
+}
+
+/* ========== DROP ANIMATION ========== */
+.task-card.drop-animate {
+  animation: dropMove 0.25s ease-in-out;
+}
+
+@keyframes dropMove {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+
+.status-todo {
+  background: #fc7c7c;
+  /* xám nhạt */
+}
+
+.status-in_progress {
+  background: #ecd373;
+  /* vàng nhạt */
+}
+
+.status-done {
+  background: #8df6a6;
+  /* xanh lá nhạt */
+}
+
+/* ========================= */
+/* PRIORITY BADGES           */
+/* ========================= */
+
+.priority-high::before {
+  content: "🔴 High";
+  color: #d93025;
+  font-weight: 600;
+  display: block;
+}
+
+.priority-medium::before {
+  content: "🟠 Medium";
+  color: #e69500;
+  font-weight: 600;
+  display: block;
+}
+
+.priority-low::before {
+  content: "🟢 Low";
+  color: #0f9d58;
+  font-weight: 600;
+  display: block;
+}

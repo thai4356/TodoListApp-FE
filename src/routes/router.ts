@@ -24,6 +24,7 @@ export const PAGE = {
 
   USER: '/user',
   TEAM: '/team'
+  
 } as const;
 
 export const PUBLIC_ROUTERS = {
