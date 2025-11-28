@@ -1,15 +1,15 @@
-import { useMutation, useQuery } from '@tanstack/react-query';
-import { fetcher, HTTPMethod } from 'config/api';
-import { TaskDetailRes, AddTaskBaseReq } from 'types/SwaggerTypeTask';
-import { QUERY_KEY } from 'config/constants';
-
-const url = {
-  create: 'v1/task',
-};
+import { useMutation } from "@tanstack/react-query";
+import { fetcher, HTTPMethod } from "config/api";
 
 export const useCreateTask = () =>
   useMutation({
-    mutationFn: ({ currentUserId, data }: any) =>
+    mutationFn: ({
+      currentUserId,
+      data,
+    }: {
+      currentUserId: number | string;
+      data: any;
+    }) =>
       fetcher({
         method: HTTPMethod.POST,
         url: `v1/tasks?currentUserId=${currentUserId}`,
@@ -19,7 +19,15 @@ export const useCreateTask = () =>
 
 export const useUpdateTask = () =>
   useMutation({
-    mutationFn: ({ id, currentUserId, data }: any) =>
+    mutationFn: ({
+      id,
+      currentUserId,
+      data,
+    }: {
+      id: number | string;
+      currentUserId: number | string;
+      data: any;
+    }) =>
       fetcher({
         method: HTTPMethod.PATCH,
         url: `/v1/tasks/${id}?currentUserId=${currentUserId}`,
@@ -27,12 +35,17 @@ export const useUpdateTask = () =>
       }),
   });
 
-  export const useDeleteTask = () =>
+export const useDeleteTask = () =>
   useMutation({
-    mutationFn: ({ id, currentUserId }: any) =>
+    mutationFn: ({
+      id,
+      currentUserId,
+    }: {
+      id: number | string;
+      currentUserId: number | string;
+    }) =>
       fetcher({
         method: HTTPMethod.DELETE,
         url: `/v1/tasks/${id}?currentUserId=${currentUserId}`,
       }),
   });
-
