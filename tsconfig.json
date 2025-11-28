@@ -20,7 +20,7 @@
     "esModuleInterop": true,
     "baseUrl": "./src"
   },
-  "include": ["src", "codegen-rest.mts"],
+  "include": ["src"],
   "references": [
     {
       "path": "./tsconfig.node.json"
