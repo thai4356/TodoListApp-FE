@@ -50,13 +50,27 @@ export interface RoleDetail {
   roleName?: string;
 }
 
+export interface UploadFileRes {
+  id: number;
+  originUrl: string;
+  thumbUrl: string;
+  width?: number;
+  height?: number;
+  size?: number;
+}
+
 export interface UserDetailRes {
   id: number;
   fullName: string;
   email: string;
-  avatarUrl: string;
-  accessToken: string;
-  avaId: number;
+  code: string;
+
+  avatarUrl: string | null;          // Cloudinary URL
+  avatarFileId: number | null;       // points to UploadFile.id
+  avatarFile?: UploadFileRes | null; // full file object
+
+  createdAt?: string;
+  updatedAt?: string;
 }
 
 

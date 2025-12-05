@@ -91,7 +91,7 @@ export default function UserInfoPage() {
                       <Text strong>Mã người dùng:</Text>
                     </Col>
                     <Col span={16}>
-                      <Text>{user.code}</Text>
+                      <Text>{user.id}</Text>
                     </Col>
                   </Row>
 
@@ -118,7 +118,7 @@ export default function UserInfoPage() {
                       <Text strong>Ngày tạo:</Text>
                     </Col>
                     <Col span={16}>
-                      <Text>{new Date(user.createdAt).toLocaleString()}</Text>
+                      <Text>{user.createdAt}</Text>
                     </Col>
                   </Row>
                 </Card>
