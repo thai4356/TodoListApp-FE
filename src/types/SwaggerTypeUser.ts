@@ -51,11 +51,14 @@ export interface RoleDetail {
 }
 
 export interface UserDetailRes {
-  /** @format int32 */
-  id?: number;
-  name?: string;
-  email?: string;
+  id: number;
+  fullName: string;
+  email: string;
+  avatarUrl: string;
+  accessToken: string;
+  avaId: number;
 }
+
 
 
 
@@ -353,6 +356,7 @@ export interface RegisterUser {
   /** @format int32 */
   codeId: number;
   code: string;
+  avatar?: File | null;
 }
 
 export interface BaseResponseUserLoginRes {

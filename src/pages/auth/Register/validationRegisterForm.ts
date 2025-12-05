@@ -7,8 +7,9 @@ export const registerProviderSchema = () =>
     purpose: z.coerce.number(),
     fullname: z.string().min(1, "Full name is required"),
     password: z.string().min(6, "Password must be at least 6 characters"),
-    confirmPassword: z.string()
-
+    confirmPassword: z.string(),
+    avatar: z.any().optional()
+    
   })
     .refine((data) => data.password === data.confirmPassword, {
       message: "Passwords do not match",

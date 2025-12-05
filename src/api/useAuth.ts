@@ -51,12 +51,15 @@ const useLoginProvider = () => {
 const useRegisterProvider = () => {
   const navigate = useNavigate();
   return useMutation({
-    mutationFn: (body: Partial<RegisterUser>): Promise<BaseResponse<UserLoginRes>> => {
+    mutationFn: (formData: FormData): Promise<BaseResponse<UserLoginRes>> => {
       return fetcher(
         {
           method: HTTPMethod.POST,
           url: url.registerProvider,
-          data: body,
+          data: formData,
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
         },
         {
           withToken: false,
@@ -70,6 +73,9 @@ const useRegisterProvider = () => {
     },
   });
 };
+
+
+
 
 const useSentOTPProvider = () =>
   useMutation({
